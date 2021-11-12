@@ -31,6 +31,7 @@ def write():
         try:
             msg = input("")
             print('\033[1A \033[K')
+
             sys.stdout.flush()
             sock.send(msg.encode('utf-8'))
 

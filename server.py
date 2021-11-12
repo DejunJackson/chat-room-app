@@ -1,7 +1,8 @@
 import socket
 import threading
 import sys
-
+from rooms import Room
+from options import show_options
 
 HOST = '192.168.0.96'
 PORT = 8000
@@ -12,6 +13,7 @@ server.bind((HOST, PORT))
 server.listen()
 
 clients = {}
+rooms = {}
 
 
 def broadcast(message):
@@ -24,6 +26,26 @@ def handle(communication_socket):
         try:
             while True:
                 received_msg = communication_socket.recv(1024).decode('utf-8')
+                if received_msg == '<options>':
+                    for option in show_options('None'):
+                        communication_socket.send(
+                            option.encode('utf-8'))
+                    communication_socket.send(
+                        "\n\nPlease send a choice.".encode('utf-8'))
+                    choice = communication_socket.recv(1024).decode('utf-8')
+                    selected_option = show_options(choice)
+                    if choice == '<rooms>':
+                        if len(rooms) == 0:
+                            communication_socket.send(
+                                "No rooms available to list.".encode('utf-8'))
+                        else:
+                            for room_name in rooms.keys():
+                                communication_socket.send(
+                                    room_name.encode('utf-8'))
+                    elif '<create>' in choice:
+                        room = Room(selected_option)
+                        rooms[selected_option] = room
+                    continue
                 nickname = list(clients.keys())[
                     list(clients.values()).index(communication_socket)]
                 sent_msg = f"<{nickname}> {received_msg}"
@@ -50,10 +72,9 @@ def receive():
             communication_socket.send(
                 "Welcome to the chat room. What is your nickname?".encode('utf-8'))
             nickname = communication_socket.recv(1024).decode('utf-8')
-            broadcast(f"{nickname} joined the chatroom.")
             clients[nickname] = communication_socket
             communication_socket.send(
-                f"Hi {nickname}, type a message and press enter to send!".encode('utf-8'))
+                f"Hi {nickname}, type '<options>' to view what you can do.".encode('utf-8'))
             handle_thread = threading.Thread(
                 target=handle, args=(communication_socket,))
             handle_thread.start()
