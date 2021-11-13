@@ -1,3 +1,5 @@
+"""This file handles client code, using threads to send messages and receive them"""
+
 import socket
 import threading
 import sys
@@ -15,7 +17,6 @@ def receive():
         try:
             message = sock.recv(1024).decode('utf-8')
             if message:
-
                 print('\033[K')
                 print(message)
                 sys.stdout.flush()
@@ -31,7 +32,6 @@ def write():
         try:
             msg = input("")
             print('\033[1A \033[K')
-
             sys.stdout.flush()
             sock.send(msg.encode('utf-8'))
 
