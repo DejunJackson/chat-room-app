@@ -1,6 +1,14 @@
 # pytalk
 This is a console based chat room app in python that can hold multiple rooms and multiple users. This application was made using threads and socket programming in pure python.
 
+# Table of Contents
+
+- [Set up](#set-up)
+- [Features](#features)
+- [To do](#to-do)
+- [Resources](#resources)
+- [License](#license)
+
 # Set up
 1. Copy this link: https://github.com/DejunJackson/pytalk.git or go to the main page of the Github Repo and select the green "Code" button.
 2. Open a terminal emulator on your desktop, Mac the application “Terminal” should be installed by default. Windows users will have “Windows PowerShell” or “Command Prompt”.
@@ -41,7 +49,7 @@ Enter: '<leave>' to leave your current room.
 ```
 
 - Upon start up you are asked to enter your nickname.
-- Typing '<options>' grants you access to all of the powers you have.
+- The options menu grants you access to all of the powers you have.
 - In this application, you can:
     - Create a room with a name
     - See other rooms that were created by you or other users and how many users are in them
@@ -60,4 +68,32 @@ Enter: '<leave>' to leave your current room.
     
 
 # Resources 
+Here I list the resources I used to help make this app.
+  
+1. For threads and socket programming with python, here is a repo I made: https://github.com/DejunJackson/Python-Socket-Programming 
 
+
+# License
+
+MIT License
+
+Copyright (c) 2021 Dejun Jackson
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
