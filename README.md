@@ -68,7 +68,7 @@ Enter: '<leave>' to leave your current room.
     
 
 # Resources 
-Here I list the resources I used to help make this app.
+Here I list the resources I used to help me learn the components used to make this app.
   
 1. For threads and socket programming with python, here is a repo I made: https://github.com/DejunJackson/Python-Socket-Programming 
 
