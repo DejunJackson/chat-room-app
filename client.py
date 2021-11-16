@@ -1,4 +1,4 @@
-"""This file handles client code, using threads to send messages and receive them"""
+"""Handles client code, using threads to send messages and receive them simultaneuosly"""
 
 import socket
 import threading
